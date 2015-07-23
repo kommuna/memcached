@@ -1,0 +1,18 @@
+{
+  "name": "kommuna/memcached",
+  "description": "Multi-thread Memcached PHP wrapper",
+  "minimum-stability": "development",
+  "license": "LGPL",
+  "authors": [
+    {
+      "name": "l80",
+      "email": ""
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "Kommuna\\Memcached\\": "src/"
+    }
+  },
+}
