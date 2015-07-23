@@ -1,10 +1,10 @@
 <?php
 
-namespace Kommuna\Memcached;
+namespace Kommuna;
 
 use \Memcached;
 
-class Cache {
+class MemcachedMT {
 
     public $memcached;
 
