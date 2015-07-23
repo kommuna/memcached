@@ -1,5 +1,7 @@
 <?php
 
+namespace Kommuna;
+
 use \Memcached;
 
 class MemcachedMT {
