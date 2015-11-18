@@ -84,6 +84,7 @@ class MemcachedMT {
             $memcache->setOption(Memcached::OPT_POLL_TIMEOUT, 100);    // miliseconds
             $memcache->setOption(Memcached::OPT_SEND_TIMEOUT, 100000); // microseconds
             $memcache->setOption(Memcached::OPT_RECV_TIMEOUT, 100000); // microseconds
+            $memcache->setOption(Memcached::OPT_RECV_TIMEOUT, Memcached::SERIALIZER_JSON);
 
         }
 
