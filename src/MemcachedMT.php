@@ -121,4 +121,8 @@ class MemcachedMT {
 
     }
 
+    public function resultNotFound() {
+        return $this->getResultCode() === Memcached::RES_NOTFOUND;
+    }
+
 }
