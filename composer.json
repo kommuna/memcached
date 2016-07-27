@@ -16,8 +16,8 @@
     }
   ],
 
-  "require": {
-    "alebedev80/PinbaTrait": "*"
+  "require-dev": {
+    "alebedev80/PinbaTrait": "dev-master"
   },
 
   "autoload": {
