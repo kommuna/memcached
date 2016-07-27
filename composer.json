@@ -17,7 +17,7 @@
   ],
 
   "require": {
-    "alebedev80/pinbatrait": "dev-master"
+    "alebedev80/PinbaTrait": "dev-master"
   },
 
   "autoload": {
