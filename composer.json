@@ -1,7 +1,7 @@
 {
   "name": "kommuna/memcached",
   "description": "Multi-thread Memcached PHP wrapper",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "LGPL",
   "authors": [
     {
