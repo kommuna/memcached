@@ -3,11 +3,11 @@
 namespace Kommuna;
 
 use \Memcached;
-use PinbaTrait\pinba;
+use PinbaTrait\PinbaTrait;
 
 class MemcachedMT {
 
-    use pinba;
+    use PinbaTrait;
 
     public $memcached;
 
