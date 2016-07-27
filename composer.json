@@ -1,12 +1,11 @@
 {
   "name": "kommuna/memcached",
   "description": "Multi-thread Memcached PHP wrapper",
-  "minimum-stability": "development",
+  "minimum-stability": "stable",
   "license": "LGPL",
   "authors": [
     {
-      "name": "l80",
-      "email": ""
+      "name": "l80"
     }
   ],
 
@@ -18,7 +17,7 @@
   ],
 
   "require": {
-    "alebedev80/PinbaTrait": "dev-master"
+    "alebedev80/pinbatrait": "dev-master"
   },
 
   "autoload": {
