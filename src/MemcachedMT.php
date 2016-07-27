@@ -3,8 +3,11 @@
 namespace Kommuna;
 
 use \Memcached;
+use PinbaTrait\pinba;
 
 class MemcachedMT {
+
+    use pinba;
 
     public $memcached;
 
@@ -23,14 +26,10 @@ class MemcachedMT {
 
     protected static $settings = [];
 
-
-
     public function __construct($settings) {
-
         self::$settings = $settings;
-
+        self::init(!empty($settings['pinba']) ? $settings['pinba'] : null);
         $this->connect();
-
     }
 
     protected static function increaseConnectionRetry() {
@@ -44,6 +43,8 @@ class MemcachedMT {
     }
 
     protected function connect($reconectFlag = false) {
+
+        $pinba = self::pinba_timer_start('connect');
 
         $settings = self::$settings;
 
@@ -90,11 +91,15 @@ class MemcachedMT {
 
         self::increaseConnectionRetry();
 
+        self::pinba_timer_stop($pinba);
+
         $this->memcached = $memcache;
 
     }
 
     public function set($key, $value, $ttl) {
+
+        $pinba = self::pinba_timer_start('set');
 
         $result = $this->memcached->set($key, $value, $ttl);
 
@@ -104,20 +109,31 @@ class MemcachedMT {
             $result = $this->set($key, $value, $ttl);
 
         }
+        self::pinba_timer_stop($pinba);
 
         return $result;
     }
 
     public function get($key) {
 
+        $pinba = self::pinba_timer_start('get');
+
         $result = $this->memcached->get($key);
+
+        self::pinba_timer_stop($pinba);
 
         return $result;
     }
 
     public function delete($key, $time = 0) {
 
-        return $this->memcached->delete($key, $time);
+        $pinba = self::pinba_timer_start('delete');
+
+        $result = $this->memcached->delete($key, $time);
+
+        self::pinba_timer_stop($pinba);
+
+        return $result;
 
     }
 
