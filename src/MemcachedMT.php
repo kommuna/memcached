@@ -85,7 +85,7 @@ class MemcachedMT {
             $memcache->setOption(Memcached::OPT_POLL_TIMEOUT, 100);    // miliseconds
             $memcache->setOption(Memcached::OPT_SEND_TIMEOUT, 100000); // microseconds
             $memcache->setOption(Memcached::OPT_RECV_TIMEOUT, 100000); // microseconds
-            $memcache->setOption(Memcached::OPT_SERIALIZER, Memcached::SERIALIZER_JSON);
+            $memcache->setOption(Memcached::OPT_SERIALIZER, Memcached::SERIALIZER_PHP);
 
         }
 
@@ -119,7 +119,6 @@ class MemcachedMT {
         $pinba = self::pinba_timer_start('get');
 
         $result = $this->memcached->get($key);
-
         self::pinba_timer_stop($pinba);
 
         return $result;
